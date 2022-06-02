@@ -1,0 +1,65 @@
+.container {
+    display: grid;
+    grid-template-columns: 7rem minmax($padding-sides, 1fr) repeat(10, 1fr) minmax($padding-sides, 1fr); // 13 cols
+    grid-template-rows: 80vh max-content 40vw repeat(3, max-content);
+    grid-template-areas: "side head head head head head head head head head realtor realtor realtor"
+                         "side . feature feature feature feature feature feature feature feature feature feature ."
+                         "side collage collage collage collage collage collage review review review review review review"
+                         "side . houses houses houses houses houses houses houses houses houses houses ."
+                         "side gal gal gal gal gal gal gal gal gal gal gal gal"
+                         "side foot foot foot foot foot foot foot foot foot foot foot foot";
+}
+
+.sidebar {
+    grid-area: side;
+    background-color: $color-primary;
+    padding-top: 3rem;
+
+    display: flex;
+    justify-content: center;    
+}
+
+
+@media only screen and (max-width: $breakpoint-large-1) {
+
+    .container {
+        grid-template-columns: minmax($padding-sides, 1fr) repeat(10, 1fr) minmax($padding-sides, 1fr); // 12 cols
+        grid-template-rows: 7rem 80vh max-content 40vw repeat(3, max-content);
+        grid-template-areas: "side side side side side side side side side side side side"
+        "head head head head head head head head head realtor realtor realtor"
+        ". feature feature feature feature feature feature feature feature feature feature ."
+        "collage collage collage collage collage collage review review review review review review"
+        ". houses houses houses houses houses houses houses houses houses houses ."
+        "gal gal gal gal gal gal gal gal gal gal gal gal"
+        "foot foot foot foot foot foot foot foot foot foot foot foot";
+    }
+
+    .sidebar {
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 3rem 0 0;
+    }
+}
+
+@media only screen and (max-width: $breakpoint-mid) {
+
+    .container {
+        grid-template-columns: minmax($padding-sides, 1fr) repeat(10, 1fr) minmax($padding-sides, 1fr); // 12 cols
+        grid-template-rows: 7rem calc(100vh - 7rem) max-content max-content max-content 50vw repeat(3, max-content);
+        grid-template-areas: "side side side side side side side side side side side side"
+        "head head head head head head head head head head head head"
+        "realtor realtor realtor realtor realtor realtor realtor realtor realtor realtor realtor realtor"
+        ". feature feature feature feature feature feature feature feature feature feature ."
+        "review review review review review review review review review review review review"
+        "collage collage collage collage collage collage collage collage collage collage collage collage"
+        ". houses houses houses houses houses houses houses houses houses houses ."
+        "gal gal gal gal gal gal gal gal gal gal gal gal"
+        "foot foot foot foot foot foot foot foot foot foot foot foot";
+    }
+}
+
+@media only screen and (max-width: $breakpoint-small) {
+    .container {
+        grid-template-columns: 2.5rem repeat(10, 1fr) 2.5rem; // 12 cols
+    }
+}

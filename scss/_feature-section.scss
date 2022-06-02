@@ -1,0 +1,44 @@
+.features {
+    grid-area: feature;
+    margin: 15rem 0;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    column-gap: 6rem;
+    row-gap: 6rem;
+    justify-content: center;
+}
+
+.feature {
+    padding-left: 7rem;
+    position: relative;
+    
+    &__text {
+        font-size: 1.7rem;
+        line-height: 1.6;
+        color: $color-grey-dark-2;
+        margin-top: 2rem;
+    }
+
+    &__icon {   
+        position: absolute;
+        width: 4.5rem;
+        height: 4.5rem;
+        fill: $color-primary;
+        top: -1rem;
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: $breakpoint-small) {
+    .feature {
+        text-align: center;
+        padding: 6rem 0 1.5rem 0;
+        border-bottom: 1px solid rgba($color: $color-primary, $alpha: .3);
+
+        &__icon {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}

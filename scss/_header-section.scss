@@ -1,0 +1,115 @@
+.header {
+    grid-area: head;
+    background-image: linear-gradient(rgba($color: $color-secondary, $alpha: .9) 0%, 
+                                        rgba($color: $color-secondary, $alpha: .9) 10%), 
+                        url('../img/hero.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 8rem 8rem 8rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr max-content max-content 1fr;
+    align-items: start;
+    row-gap: 2rem;
+
+    &__btn {
+        justify-self: left;
+    }
+
+    &__seen-on {
+        font-size: 1.6rem;
+        white-space: nowrap; //temporaryfix
+        color: $color-grey-light-2;
+
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        column-gap: 1.5rem;
+        align-items: center;
+
+        &::before, &::after {
+            content: "";
+            height: .1rem;
+            width: 100%;
+            background-color: rgba($color: $color-grey-light-2, $alpha: 0.7);
+        }
+
+    }
+
+    &__company {
+
+        &-box {
+            display: grid;
+            justify-items: center;
+            justify-content: space-evenly;
+            grid-template-columns: repeat(4, minmax(min-content, 1fr)); //12rem is just an approximate value considered for each icon box
+            grid-template-rows: 2.5rem;
+            gap: 3rem;                                                                                
+        }
+        &-icon {
+            height: 100%;
+            filter: brightness(65%)
+        }
+    }
+
+}
+
+.logo {
+    height: 3rem;
+    justify-self: center;
+}
+
+
+.realtor {
+    grid-area: realtor;
+    background-color: $color-secondary;
+    padding: 5rem 0; //for mid breakpoint (800px)
+    white-space: nowrap; // temporaryfix
+
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    row-gap: 2.8rem;
+
+    &__dp {
+        border-radius: 50%;
+        height: 7rem;
+    }
+
+    &__profiles {
+        display: grid;
+
+        grid-template-columns: max-content max-content;
+        column-gap: 2rem;
+        row-gap: 3.5rem;
+        align-content: start;
+        align-items: center;
+    }
+
+    &__skill {
+        color: $color-grey-light-2;
+        text-transform: uppercase;
+        margin-top: .3rem;
+    }
+}
+
+@media only screen and (max-width: $breakpoint-mid) {
+    .header {
+        &__company {
+            &-box {
+                grid-template-rows: minmax(1rem, 3vw);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-small) {
+    .header {
+        padding: 4rem;
+        text-align: center;
+
+        &__btn {
+            justify-self: center;
+        }
+    }
+}

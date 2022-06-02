@@ -1,0 +1,73 @@
+.collage {
+    grid-area: collage;
+    background-image: linear-gradient(rgba($color: $color-primary, $alpha: 0.5) 0%, 
+                                      rgba($color: $color-primary, $alpha: 0.5) 0%), 
+                       url('../img/back.jpg');
+    background-size: cover;
+    position: relative;
+
+    &__img-1, &__img-2 {
+        position: absolute;
+        height: 10rem;
+        box-shadow: 0 2rem 5rem rgba($color: #000, $alpha: 0.3)
+    }
+
+    &__img-1 {
+        z-index: 10;
+        height: 60%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__img-2 {
+        z-index: 20;
+        height: 35%;
+        bottom: 5rem;
+        right: -3rem;
+    }
+}
+
+.review {
+    grid-area: review;
+    background-color: $color-grey-light-1;
+    padding: 7vw;
+    
+    display: grid;
+    align-content: center;
+    row-gap: 2rem;
+    
+    &__caption {
+        font-size: 4rem;
+        color: $color-grey-dark-1;
+        font-style: italic;
+    }
+
+    &__text {
+        font-size: 1.5rem;
+        font-style: italic;
+        margin-bottom: 2rem;
+        color: $color-grey-dark-2;
+    }
+
+    &__btn {
+        justify-self: start;
+    }
+}
+
+@media only screen and (max-width: $breakpoint-mid) {
+    .collage {
+
+        &__img-1 {
+            height: 70%;
+            transform: translate(-90%, -50%);
+        }
+
+        &__img-2 {
+            height: 50%;
+            top: 50%;
+            right: 8%;
+            transform: translateY(-50%);
+        }
+    }
+}
